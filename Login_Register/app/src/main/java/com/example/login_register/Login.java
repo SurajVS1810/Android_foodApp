@@ -49,6 +49,12 @@ public class Login extends AppCompatActivity {
         obj.putExtra("un",s2);
         startActivity(obj);
     }
+
+    public void onAlpham(View v){
+        Intent obj=new Intent("act_alpham");
+        obj.putExtra("un",s2);
+        startActivity(obj);
+    }
     public void onCart(View v){
         List<Ccart> rec=db.getcart(s2);
         String str="";
