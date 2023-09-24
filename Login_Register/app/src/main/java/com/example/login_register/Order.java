@@ -61,4 +61,10 @@ public class Order extends AppCompatActivity {
         db.deleteorder(s);
         Toast.makeText(this, "Cleared Successfully", Toast.LENGTH_LONG).show();
     }
+
+    public void onBack(View v){
+        Intent obj=new Intent("act_login");
+        obj.putExtra("un",s);
+        startActivity(obj);
+    }
 }

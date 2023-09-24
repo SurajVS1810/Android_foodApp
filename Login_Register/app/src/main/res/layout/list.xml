@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/t11"
-        android:layout_width="206dp"
-        android:layout_height="56dp"
+        android:layout_width="208dp"
+        android:layout_height="59dp"
         android:gravity="center"
         android:text=""
         android:textColor="@color/Violet"
@@ -24,21 +24,21 @@
 
     <TextView
         android:id="@+id/t12"
-        android:layout_width="109dp"
-        android:layout_height="47dp"
+        android:layout_width="86dp"
+        android:layout_height="55dp"
         android:gravity="center"
         android:text=""
         android:textColor="@color/Violet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintHorizontal_bias="0.664"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.343" />
 
     <TextView
         android:id="@+id/t15"
-        android:layout_width="129dp"
+        android:layout_width="106dp"
         android:layout_height="56dp"
         android:gravity="center"
         android:text="Cart_id : "
@@ -59,10 +59,10 @@
         android:textColor="@color/Violet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
+        app:layout_constraintVertical_bias="0.467" />
 
     <TextView
         android:id="@+id/t14"

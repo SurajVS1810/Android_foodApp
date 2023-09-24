@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Cart extends AppCompatActivity {
 
@@ -33,45 +34,52 @@ public class Cart extends AppCompatActivity {
         db=new CDB(this);
         Bundle b=getIntent().getExtras();
         s=b.getString("un");
-        list=new ArrayList();
-        List<Ccart> rec=db.getcart(s);
-        String[] log=new String[4];
-        for(Ccart cr:rec){
-            log[0]="Foodname: "+cr.foodname;
-            log[1]="c_id: "+cr.c_id;
-            log[2]="Price: "+cr.price+" /-";
-            log[3]="Quantity: "+cr.quantity;
+        list = new ArrayList<>();
+        List<Ccart> rec = db.getcart(s);
 
-            item =new HashMap<String,String>();
-            item.put("line1",log[0]);
-            item.put("line2",log[1]);
-            item.put("line3",log[2]);
-            item.put("line4",log[3]);
+        for (Ccart cr : rec) {
+            Map<String, String> item = new HashMap<>();
+            item.put("line1", "Foodname: " + cr.foodname);
+            item.put("line2", "c_id: " + cr.c_id);
+            item.put("line3", "Price: " + cr.price + " /-");
+            item.put("line4", "Quantity: " + cr.quantity);
             list.add(item);
         }
-        sa=new SimpleAdapter(this,list,
-                R.layout.multi_lines,new String[]{"line1","line2","line3","line4"},
-                new int[]{R.id.line_a,R.id.line_b,R.id.line_c,R.id.line_d}
+
+        sa = new SimpleAdapter(this, list,
+                R.layout.multi_lines, new String[]{"line1", "line2", "line3", "line4"},
+                new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d}
         );
-        ListView lst=findViewById(R.id.listview);
+
+        ListView lst = findViewById(R.id.listview);
         lst.setAdapter(sa);
 
         lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent obj=new Intent("act_list");
-                obj.putExtra("un",s);
-                obj.putExtra("foodname",log[0]);
-                obj.putExtra("cart_id",log[1]);
-                obj.putExtra("prize",log[2]);
-                obj.putExtra("quantity",log[3]);
+                // Retrieve the data for the clicked item
+                Map<String, String> item = (Map<String, String>) list.get(i);
+                String foodname = item.get("line1");
+                String c_id = item.get("line2");
+                String price = item.get("line3");
+                String quantity = item.get("line4");
+
+                // Now, you can use these values to create your Intent
+                Intent obj = new Intent("act_list");
+                obj.putExtra("un", s);
+                obj.putExtra("foodname", foodname);
+                obj.putExtra("cart_id", c_id);
+                obj.putExtra("prize", price);
+                obj.putExtra("quantity", quantity);
                 startActivity(obj);
             }
         });
 
     }
-    public void onPlace(View v){
-
+    public void onBack(View v){
+        Intent obj=new Intent("act_login");
+        obj.putExtra("un",s);
+        startActivity(obj);
     }
 
 }
