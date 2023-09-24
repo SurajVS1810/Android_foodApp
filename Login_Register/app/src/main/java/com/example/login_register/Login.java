@@ -50,6 +50,12 @@ public class Login extends AppCompatActivity {
         startActivity(obj);
     }
 
+    public void onBroasted(View v){
+        Intent obj=new Intent("act_broasted");
+        obj.putExtra("un",s2);
+        startActivity(obj);
+    }
+
     public void onAlpham(View v){
         Intent obj=new Intent("act_alpham");
         obj.putExtra("un",s2);
@@ -70,7 +76,8 @@ public class Login extends AppCompatActivity {
     }
 
     public void onOrder(View v){
-        Intent obj=new Intent(getApplicationContext(),MainActivity.class);
+        Intent obj=new Intent("act_order");
+        obj.putExtra("un",s2);
         startActivity(obj);
     }
 }

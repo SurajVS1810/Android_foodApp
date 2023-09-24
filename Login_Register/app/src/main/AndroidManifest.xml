@@ -80,6 +80,26 @@
         </activity>
 
         <activity
+            android:name=".Broasted"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_broasted" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Order"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_order" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".Alpham"
             android:exported="true">
             <intent-filter>
