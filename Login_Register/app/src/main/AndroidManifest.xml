@@ -90,6 +90,78 @@
         </activity>
 
         <activity
+            android:name=".List"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_list" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Sanwich"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_sanwich" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Grilled"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_grilled" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".Bucket"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_bucket" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Shawarma"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_shawarma" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Fries"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_fries" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Combo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act_combo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
             android:name=".Order"
             android:exported="true">
             <intent-filter>

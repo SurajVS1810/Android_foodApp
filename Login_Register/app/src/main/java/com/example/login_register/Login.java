@@ -61,23 +61,59 @@ public class Login extends AppCompatActivity {
         obj.putExtra("un",s2);
         startActivity(obj);
     }
+
+    public void onSanwich(View v){
+        Intent obj=new Intent("act_sanwich");
+        obj.putExtra("un",s2);
+        startActivity(obj);
+    }
+
+    public void onGrilled(View v){
+        Intent obj=new Intent("act_grilled");
+        obj.putExtra("un",s2);
+        startActivity(obj);
+    }
+
+    public void onBucket(View v){
+        Intent obj=new Intent("act_bucket");
+        obj.putExtra("un",s2);
+        startActivity(obj);
+    }
+    public void onCombo(View v){
+        Intent obj=new Intent("act_combo");
+        obj.putExtra("un",s2);
+        startActivity(obj);
+    }
+
+    public void onFries(View v){
+        Intent obj=new Intent("act_fries");
+        obj.putExtra("un",s2);
+        startActivity(obj);
+    }
+
+    public void onShawarma(View v){
+        Intent obj=new Intent("act_shawarma");
+        obj.putExtra("un",s2);
+        startActivity(obj);
+    }
+
     public void onCart(View v){
-        List<Ccart> rec=db.getcart(s2);
-        String str="";
-        for(Ccart cr:rec){
-            String log="Foodname: "+cr.foodname+"c_id: "+cr.c_id+"Quantity: "+cr.quantity+"Price: "+cr.price+"username: "+cr.username;
-            log=log+"\n";
-            str=str+log;
-        }
         Intent obj=new Intent("act_cart");
         obj.putExtra("un",s2);
-        obj.putExtra("cart",str);
         startActivity(obj);
     }
 
     public void onOrder(View v){
+        List<Corder> rec=db.getOrder(s2);
+        String str="";
+        for(Corder cr:rec){
+            String log="Foodname: "+cr.foodname+" o_id:"+cr.o_id+" Quantity: "+cr.quantity+" Price: "+cr.price;
+            log=log+"\n";
+            str=str+log;
+        }
         Intent obj=new Intent("act_order");
         obj.putExtra("un",s2);
+        obj.putExtra("cart",str);
         startActivity(obj);
     }
 }

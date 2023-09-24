@@ -79,16 +79,8 @@ public class Broasted extends AppCompatActivity {
         }
     }
     public void goCart(View v){
-        List<Ccart> rec=db.getcart(s);
-        String str="";
-        for(Ccart cr:rec){
-            String log="Foodname: "+cr.foodname+"c_id: "+cr.c_id+"Quantity: "+cr.quantity+"Price: "+cr.price+"username: "+cr.username;
-            log=log+"\n";
-            str=str+log;
-        }
         Intent obj=new Intent("act_cart");
         obj.putExtra("un",s);
-        obj.putExtra("cart",str);
         startActivity(obj);
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -20,7 +21,7 @@ import java.util.List;
 public class Cart extends AppCompatActivity {
 
     CDB db;
-    String s,cart;
+    String s;
     ArrayList list;
     SimpleAdapter sa;
     HashMap<String,String> item;
@@ -32,7 +33,6 @@ public class Cart extends AppCompatActivity {
         db=new CDB(this);
         Bundle b=getIntent().getExtras();
         s=b.getString("un");
-        cart=b.getString("cart");
         list=new ArrayList();
         List<Ccart> rec=db.getcart(s);
         String[] log=new String[4];
@@ -55,6 +55,19 @@ public class Cart extends AppCompatActivity {
         );
         ListView lst=findViewById(R.id.listview);
         lst.setAdapter(sa);
+
+        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent obj=new Intent("act_list");
+                obj.putExtra("un",s);
+                obj.putExtra("foodname",log[0]);
+                obj.putExtra("cart_id",log[1]);
+                obj.putExtra("prize",log[2]);
+                obj.putExtra("quantity",log[3]);
+                startActivity(obj);
+            }
+        });
 
     }
     public void onPlace(View v){

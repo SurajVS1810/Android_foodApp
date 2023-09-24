@@ -116,7 +116,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.425"
-        app:srcCompat="@drawable/bucket" />
+        app:srcCompat="@drawable/bucket"
+        android:onClick="onBucket"/>
 
     <ImageButton
         android:id="@+id/iburger"
@@ -143,7 +144,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.156"
-        app:srcCompat="@drawable/sanwich" />
+        app:srcCompat="@drawable/sanwich"
+        android:onClick="onSanwich"/>
 
     <ImageButton
         android:id="@+id/igrilled"
@@ -156,7 +158,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.426"
-        app:srcCompat="@drawable/grilled" />
+        app:srcCompat="@drawable/grilled"
+        android:onClick="onGrilled"/>
 
     <ImageButton
         android:id="@+id/icombo"
@@ -169,7 +172,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.701"
-        app:srcCompat="@drawable/combo" />
+        app:srcCompat="@drawable/combo"
+        android:onClick="onCombo"/>
 
     <ImageButton
         android:id="@+id/ifrenchfries"
@@ -182,7 +186,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.698"
-        app:srcCompat="@drawable/frenchfries" />
+        app:srcCompat="@drawable/frenchfries"
+        android:onClick="onFries"/>
 
     <ImageButton
         android:id="@+id/ishawarma"
@@ -195,7 +200,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7"
-        app:srcCompat="@drawable/shawarma" />
+        app:srcCompat="@drawable/shawarma"
+        android:onClick="onShawarma"/>
 
     <TextView
         android:id="@+id/t2"

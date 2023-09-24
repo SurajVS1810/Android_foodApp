@@ -8,9 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
-
-public class Alpham extends AppCompatActivity {
+public class Bucket extends AppCompatActivity {
     TextView t4,t6,t7,t8,tprofile;
     CDB db;
     String s;
@@ -18,7 +16,7 @@ public class Alpham extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.alpham);
+        setContentView(R.layout.bucket);
         db=new CDB(this);
         Bundle b=getIntent().getExtras();
         s=b.getString("un");

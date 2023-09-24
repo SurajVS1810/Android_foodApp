@@ -20,12 +20,15 @@ public class CDB extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table login(name text,username varchar2(30) primary key,password varchar2(30))");
         db.execSQL("create table cart(c_id integer primary key autoincrement,foodname text,quantity text,price text,username text references login(username))");
+        db.execSQL("create table Corder(o_id integer primary key autoincrement,foodname text,quantity text,price text,username text references login(username))");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("drop table if exists login");
         db.execSQL("drop table if exists cart");
+        db.execSQL("drop table if exists Corder");
         onCreate(db);
     }
 
@@ -49,6 +52,46 @@ public class CDB extends SQLiteOpenHelper {
         return recList;
     }
 
+    public List<Corder> getorderlist(String un){
+        List<Corder> recList = new ArrayList<Corder>();
+        String selectQuery="select * from Corder where username='"+un+"'";
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(selectQuery,null);
+        if(cursor.moveToFirst()){
+            do{
+                Corder rec=new Corder();
+                rec.o_id=cursor.getInt(0);
+                rec.foodname=cursor.getString(1);
+                rec.quantity=cursor.getString(2);
+                rec.price=cursor.getString(3);
+                rec.username=cursor.getString(4);
+                recList.add(rec);
+
+            }while(cursor.moveToNext());
+        }
+        return recList;
+    }
+
+    public List<Corder> getOrder(String un){
+        List<Corder> recList = new ArrayList<Corder>();
+        String selectQuery="select * from Corder where username='"+un+"'";
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(selectQuery,null);
+        if(cursor.moveToFirst()){
+            do{
+                Corder rec=new Corder();
+                rec.o_id=cursor.getInt(0);
+                rec.foodname=cursor.getString(1);
+                rec.quantity=cursor.getString(2);
+                rec.price=cursor.getString(3);
+                rec.username=cursor.getString(4);
+                recList.add(rec);
+
+            }while(cursor.moveToNext());
+        }
+        return recList;
+    }
+
     public void AddCart(Ccart cl){
         try{
             SQLiteDatabase db=this.getWritableDatabase();
@@ -59,6 +102,23 @@ public class CDB extends SQLiteOpenHelper {
             cv.put("price",cl.price);
             cv.put("username",cl.username);
             db.insert("cart",null,cv);
+            db.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void Insertorder(Corder cl){
+        try{
+            SQLiteDatabase db=this.getWritableDatabase();
+            ContentValues cv=new ContentValues();
+            cv.put("o_id",cl.o_id);
+            cv.put("foodname",cl.foodname);
+            cv.put("quantity",cl.quantity);
+            cv.put("price",cl.price);
+            cv.put("username",cl.username);
+            db.insert("Corder",null,cv);
             db.close();
         }
         catch(Exception e){
@@ -140,6 +200,18 @@ public class CDB extends SQLiteOpenHelper {
     {
         SQLiteDatabase db=this.getWritableDatabase();
         return db.delete("login","username=?",new String[] {String.valueOf(username)});
+    }
+
+    public int deleteorder(String username)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        return db.delete("Corder","username=?",new String[] {String.valueOf(username)});
+    }
+
+    public int deletecart(int cid)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        return db.delete("cart","c_id=?",new String[] {String.valueOf(cid)});
     }
 
     public void update(String np,String un){
